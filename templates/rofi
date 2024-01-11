@@ -1,0 +1,24 @@
+::destination: ~/.config/rofi/settings.rasi
+::namespace: rofi
+
+* {
+	background-emphasis:			{{foreground}};
+	background-normal:				{{background_rgba}};
+	foreground-emphasis:			{{background}};
+	foreground-normal:             	{{foreground}};
+	normal-highlight:				transparent;
+
+	background-color:            	transparent;
+	window-background:				transparent;
+	entry-background: 				{{background}};
+
+	selected-normal-foreground:  	@foreground-emphasis;
+	selected-normal-background:  	@background-emphasis;
+	normal-foreground:           	@foreground-normal;
+	normal-background:           	@background-normal;
+
+	text-color:						{{foreground}};
+	font:							"monospace {{font_size}}";
+}
+
+/* vim: syntax=css

@@ -1,0 +1,11 @@
+::destination: ~/.config/fontconfig/fonts.conf
+::post_write: fc-cache
+
+<match target="pattern">
+  <test name="family" qual="any">
+    <string>monospace</string>
+  </test>
+  <edit binding="strong" mode="prepend" name="family">
+    <string>{{font}}</string>
+  </edit>
+</match>

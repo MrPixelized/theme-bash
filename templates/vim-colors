@@ -1,0 +1,11 @@
+::destination: ~/.config/nvim/colors.vim
+
+set termguicolors
+colors {{nvim.colorscheme}}
+
+" Make sure the background stays transparent
+hi! Normal  	guibg=NONE
+hi! NonText 	guibg=NONE
+hi! EndOfBuffer	guibg=NONE
+hi! LineNr  	guibg=NONE
+hi! SignColumn 	guibg=NONE

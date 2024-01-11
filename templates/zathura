@@ -1,0 +1,14 @@
+::destination: ~/.config/zathura/zathurarc
+
+set selection-clipboard clipboard
+
+set font "monospace {{font_size}}"
+
+set statusbar-v-padding 0
+set statusbar-h-padding 0
+
+set default-bg "{{background_rgba_dec}}"
+set recolor-lightcolor rgba(0,0,0,0)
+set recolor-keephue
+
+set recolor

@@ -1,0 +1,24 @@
+::destination: ~/.config/lemonbar/settings.sh
+::post_write: systemctl --user restart lemonbar
+::namespace: lemonbar
+::enabled: yes
+
+
+# Get the current active screen (either primary, or HDMI if HDMI plugged in)
+screen=$(xrandr | grep "primary")
+
+# Find the width and offset of this screen
+offset_x=$(echo $screen | sed -r 's/.* [0-9]+x[0-9]+\+([0-9]+)\+[0-9]+.*/\1/')
+offset_y=$(echo $screen | sed -r 's/.* [0-9]+x[0-9]+\+[0-9]+\+([0-9]+).*/\1/')
+width=$(echo $screen | sed -r 's/.* ([0-9]+)x[0-9]+\+[0-9]+\+[0-9]+.*/\1/')
+
+export QUEUE="/var/run/user/$(id -u)/lemonbar-queue"
+export HEIGHT=22
+export WIDTH=$width
+export X=$offset_x
+export Y=$offset_y
+export FG="{{white}}"
+export BG="{{background}}"
+export ACCENT="{{blue}}"
+export ALERT="{{red}}"
+export DEFAULT_POLL_INTERVAL=3

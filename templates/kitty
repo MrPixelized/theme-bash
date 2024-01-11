@@ -1,0 +1,53 @@
+::destination: ~/.config/kitty/resources.conf
+::post_write: pgrep kitty | xargs -r kill -s sigusr1
+::namespace: kitty
+
+# vim:fileencoding=utf-8:ft=conf:foldmethod=marker
+# This is a templated file! Edit its base at ~/.config/theme/templates/kitty
+
+# Font
+font_family      monospace
+bold_font        {{font_bold}}
+italic_font      auto
+bold_italic_font auto
+
+font_size {{font_size}}	
+
+# Url rendering
+url_color {{blue}}
+
+# Color scheme
+foreground {{foreground}}
+
+background {{background}}
+background_opacity {{background_opacity}}
+
+selection_foreground {{background}}
+selection_background {{foreground}}
+
+# System colors
+color0 {{color0}}
+color1 {{color1}}
+color2 {{color2}}
+color3 {{color3}}
+color4 {{color4}}
+color5 {{color5}}
+color6 {{color6}}
+color7 {{color7}}
+color8 {{color8}}
+color9 {{color9}}
+color10 {{color10}}
+color11 {{color11}}
+color12 {{color12}}
+color13 {{color13}}
+color14 {{color14}}
+color15 {{color15}}
+
+mark1_foreground {{black}}
+mark1_background {{bright_blue}}
+
+mark2_foreground {{black}}
+mark2_background {{bright_yellow}}
+
+mark3_foreground {{black}}
+mark3_background {{bright_magenta}}

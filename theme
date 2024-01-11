@@ -1,0 +1,17 @@
+#!/bin/bash
+
+[[ $# -eq 0 ]] || cp $HOME/.config/theme/themes/$1.theme $HOME/.Xresources
+
+xrdb -load $HOME/.Xresources
+
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+NC="\033[0m"
+
+for file in $HOME/.config/theme/templates/*; do
+	echo -n "Configuring $(basename $file)... "
+	apply-theme-config $file
+
+	[[ $? -eq 0 ]] && echo -e "${GREEN}done" || echo -e "${RED}failed"
+	echo -ne $NC
+done

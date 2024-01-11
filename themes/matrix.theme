@@ -1,0 +1,86 @@
+#define c00		#000000
+#define c01		#00FF41
+#define c02		#008F11
+#define c03		#008F11
+#define c04		#003B00
+#define c05		#00FF41
+#define c06		#008F11
+#define c07		#00FF41
+
+#define c08 	#003B00
+#define c09 	#00FF41
+#define c10 	#008F11
+#define c11 	#00FF41
+#define c12		#008F11
+#define c13 	#00FF41
+#define c14 	#008F11
+#define c15 	#00FF41
+
+#define	bg		#000000
+#define	abg		#00000000
+#define	bga		#000000
+#define bgo     1.0
+
+#define fg		c07
+
+#define fnt		JetBrainsMono Nerd Font Mono
+#define fntb	fnt Bold
+#define fnts    12
+
+#define cs		monokai
+
+*.colorscheme: 	cs
+
+*.black: 	c00
+*.red: 		c01
+*.green: 	c02
+*.yellow: 	c03
+*.blue: 	c04
+*.magenta:	c05
+*.cyan: 	c06
+*.white: 	c07
+
+*.bright_black: 	c08
+*.bright_red: 		c09
+*.bright_green: 	c10
+*.bright_yellow: 	c11
+*.bright_blue: 		c12
+*.bright_magenta:	c13
+*.bright_cyan: 		c14
+*.bright_white: 	c15
+
+*.orange:   c03
+*.purple:   c04
+
+*.color0:	c00
+*.color1:	c01
+*.color2:	c02
+*.color3:	c03
+*.color4:	c04
+*.color5:	c05
+*.color6:	c06
+*.color7:	c07
+
+*.color8: 	c08
+*.color9: 	c09
+*.color10: 	c10
+*.color11: 	c11
+*.color12: 	c12
+*.color13: 	c13
+*.color14: 	c14
+*.color15: 	c15
+
+*.background: 			bg
+*.background_argb:		abg
+*.background_rgba:		bga
+*.background_opacity: 	bgo
+
+lemonbar.background: 	#000000
+rofi.background: 	 	#000000
+rofi.background_rgba:  	#000000ff
+
+*.foreground:	fg
+
+*.font: 		fnt
+*.font_bold: 	fntb
+*.font_size: 	fnts

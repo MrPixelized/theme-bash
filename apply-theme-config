@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Lines starting with :: will be excluded in the final theme rendering.
+# Global settings to be taken into account can be at the beginning of the file:
+# :: setting_name: value
+
+# Settings:
+# ::destination: [destination file]
+# ::post_write: [command to execute after writing the config file]
+# ::enabled: [no | anything else]
+
+# Go through all of the files given as command line arguments
+for file in "$@"; do
+	unset setting_destination
+
+	# Read global settings; break at the first empty line
+	while read key value; do
+		declare setting_$key="$value"
+	done < <(
+		sed '/^$/Q' "$file" |
+		sed 's/^\:\:\s*//' |
+		sed 's/\s*\:\s*/ /'
+	)
+
+	# Skip this file if it is not enabled
+	[[ "$setting_enabled" == "no" ]] && continue
+
+	# Disable globbing
+	set -o noglob
+
+	# Write lines of template to destination, replacing variables
+	[[ -z "$setting_destination" ]] ||
+		sed -n '/^\:\:.*/!p' "$file" |
+		sed -E "s/([|;\\#\\$&<>\\(\\)\`\'\"])/\\\\\\1/g" | # Escape special characters
+		sed "s/{{\\(.*\\)}}/{{${setting_namespace+${setting_namespace}.}\1}}/g" | # Add namespaces
+		sed 's/{{\(.*\)}}/$(xgetres \1)/g' |
+		while read -r line; do
+			eval echo $line
+		done > $(eval echo $setting_destination)
+
+	# Reinable globbing for hooks
+	set +o noglob
+
+	# Execute post-write hook, if present
+	[[ -z "$setting_post_write" ]] || bash -c "$setting_post_write"
+done
